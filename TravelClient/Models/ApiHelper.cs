@@ -5,10 +5,10 @@ namespace TravelClient.Models
 {
     class ApiHelper
     {
-        public static async Task<string> ApiCall(string apiKey)
+        public static async Task<string> GetAll()
         {
-            RestClient client = new RestClient("https://api.nytimes.com/svc/topstories/v2");
-            RestRequest request = new RestRequest($"home.json?api-key={apiKey}", Method.GET);
+            RestClient client = new RestClient("https://localhost:5001/api");
+            RestRequest request = new RestRequest($"reviews", Method.GET);
             IRestResponse response = await client.ExecuteTaskAsync(request);
             return response.Content;
         }

@@ -1,7 +1,8 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TravelClient.Models
 {
@@ -13,13 +14,13 @@ namespace TravelClient.Models
         public string Details { get; set; }
         public int Rating { get; set; }
 
-        public static List<Review> GetReviews(string apiKey)
+        public static List<Review> GetReviews()
         {
-            Task<string> apiCallTask = ApiHelper.ApiCall(apiKey);
+            Task<string> apiCallTask = ApiHelper.GetAll();
             string result = apiCallTask.Result;
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-            List<Review> reviewList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse["results"].ToString());
+            List<Review> reviewList = JsonConvert.DeserializeObject<List<Review>>(jsonResponse.ToString());
 
             return reviewList;
         }
