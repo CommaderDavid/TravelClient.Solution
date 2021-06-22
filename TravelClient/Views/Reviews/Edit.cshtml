@@ -1,0 +1,25 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>Edit Info:</h1>
+<form action="/Review/Details/@(Model.ReviewId)" method="POST">
+    <label for="country">Country's Name</label>
+    <input type="text" id="country" name="country" value="@(Model.Country)">
+    <br>
+    <label for="city">City's Name</label>
+    <input type="text" id="city" name="city" value="@(Model.City)">
+    <br>
+    <label for="details">User's Review</label>
+    <input type="text" id="details" name="details" value="@(Model.Details)">
+    <br>
+    <label for="rating">Rating</label>
+    <input type="number" id="rating" name="rating" value="@(Model.Rating)">
+    <br>
+    <label for="userName">User Name</label>
+    <input type="text" id="userName" name="userName" value="@(Model.User_Name)">
+    <br>
+    <button type="submit">Go!</button>
+</form>
+
+<p>@Html.ActionLink("Return to Details", "Details", "Reviews")</p>

@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout";
+}
+
+@model CretaceousClient.Models.Review
+
+<h2>Are you sure you want to delete this Review?</h2>
+
+<h4>@Html.DisplayFor(model => model.User_Name)</h4>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+<p>@Html.ActionLink("Back to reviews", "Index", "Reviews")</p>
