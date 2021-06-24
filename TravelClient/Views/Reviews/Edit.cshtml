@@ -2,16 +2,19 @@
     Layout = "_Layout";
 }
 
+@model TravelClient.Models.Review
+
 <h1>Edit Info:</h1>
 <form action="/Review/Details/@(Model.ReviewId)" method="POST">
+    @Html.HiddenFor(model => model.ReviewId)
     <label for="country">Country's Name</label>
     <input type="text" id="country" name="country" value="@(Model.Country)">
     <br>
     <label for="city">City's Name</label>
     <input type="text" id="city" name="city" value="@(Model.City)">
     <br>
-    <label for="details">User's Review</label>
-    <input type="text" id="details" name="details" value="@(Model.Details)">
+    <label for="userReview">User's Review</label>
+    <input type="text" id="userReview" name="userReview" value="@(Model.UserReview)">
     <br>
     <label for="rating">Rating</label>
     <input type="number" id="rating" name="rating" value="@(Model.Rating)">
@@ -22,4 +25,4 @@
     <button type="submit">Go!</button>
 </form>
 
-<p>@Html.ActionLink("Return to Details", "Details", "Reviews")</p>
+<p>@Html.ActionLink("Return to Details", "Details", new { id = Model.ReviewId })</p>
