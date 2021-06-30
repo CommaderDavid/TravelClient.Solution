@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>Please confirm your User Name:</h1>
+
+<form action="/Review/Edit/@(Model.ReviewId)" method="POST">
+    <label for="userName">User Name</label>:
+    <input type="text" id="userName" name="userName" value="@(Model.UserName)">
+    <br>
+    <button type="submit">Go!</button>
+</form>
+
+<p>@Html.ActionLink("Back to reviews", "Index", "Reviews")</p>

@@ -9,7 +9,7 @@ namespace TravelClient.Models
     public class Review
     {
         public int ReviewId { get; set; }
-        public string User_Name { get; set; }
+        public string UserName { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string UserReview { get; set; }
@@ -30,8 +30,6 @@ namespace TravelClient.Models
         {
             Task<string> apiCallTask = ApiHelper.Get(id);
             string result = apiCallTask.Result;
-
-            Console.WriteLine(result);
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             Review review = JsonConvert.DeserializeObject<Review>(jsonResponse.ToString());
