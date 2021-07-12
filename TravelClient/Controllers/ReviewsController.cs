@@ -32,6 +32,9 @@ namespace TravelClient.Controllers
 
         public IActionResult Edit(int id)
         {
+            // Review reviewToEdit = _db.Reviews.FirstOrDefault(entry => entry.ReviewId == id);
+            // //Grabs the Review in the database by Id
+            // if (review.UserName == reviewToEdit.UserName)
             Review review = Review.GetDetails(id);
             return View(review);
         }
@@ -46,6 +49,8 @@ namespace TravelClient.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            // Review reviewToDelete = _db.Reviews.FirstOrDefault(entry => entry.ReviewId == id);
+            // if (reviewToDelete.UserName == review.UserName)
             await Review.Delete(id);
             return RedirectToAction("Index");
         }
