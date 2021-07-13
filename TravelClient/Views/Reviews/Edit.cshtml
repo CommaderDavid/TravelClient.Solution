@@ -5,8 +5,7 @@
 @model TravelClient.Models.Review
 
 <h1>Edit Info:</h1>
-<form action="/Review/Details/@(Model.ReviewId)" method="POST">
-    @Html.HiddenFor(model => model.ReviewId)
+<form action="/Reviews/Details/@(Model.ReviewId)" method="post">
     <label for="country">Country's Name</label>
     <input type="text" id="country" name="country" value="@(Model.Country)">
     <br>
