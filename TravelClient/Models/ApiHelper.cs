@@ -24,7 +24,7 @@ namespace TravelClient.Models
         public static async Task Post(string newReview)
         {
             RestClient client = new RestClient("http://localhost:5000/api");
-            RestRequest request = new RestRequest($"reviews", Method.GET);
+            RestRequest request = new RestRequest($"reviews", Method.POST);
             request.AddHeader("Content-Type", "application/json");
             request.AddJsonBody(newReview);
             IRestResponse response = await client.ExecuteTaskAsync(request);
